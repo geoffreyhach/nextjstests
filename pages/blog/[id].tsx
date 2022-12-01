@@ -49,7 +49,7 @@ function Post({post, comments}:PostProps) {
         </Card>
 
         {comments.map(com => (
-            <Card key={com.id} sx={{maxWidth:"80%", margin: "auto", marginTop:"1rem", padding:"1rem"}}>
+            <Card key={String(com.id)} sx={{maxWidth:"80%", margin: "auto", marginTop:"1rem", padding:"1rem"}}>
                 <Typography sx={{fontWeight:"bold"}}>
                   {com.name}
                  </Typography>

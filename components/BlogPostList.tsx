@@ -4,13 +4,7 @@ import { BlogPostListProps, BlogPost } from '../interfaces';
 import BlogPostComp from './BlogPostComp';
 
 
-
-
-
-
-
 export default function BlogPostList({posts} : BlogPostListProps): JSX.Element {
-
     return (
         <Stack
         sx={{maxWidth:"80vw",
@@ -18,12 +12,7 @@ export default function BlogPostList({posts} : BlogPostListProps): JSX.Element {
         margin:"auto",
         backgroundColor:"aliceblue"}}
         >
-
-            {posts && posts.map((post:BlogPost) => <BlogPostComp key={post.id} {...post}/>)}
-          
-            
-        
-
+            {posts && posts.map((post:BlogPost) => <BlogPostComp key={String(post.id)} {...post}/>)}
         </Stack>
     );
 }
