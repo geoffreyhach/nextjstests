@@ -1,14 +1,12 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import BlogPostList from '../components/BlogPostList'
-import styles from '../styles/Home.module.css'
-import { BlogPostListProps, BlogPost } from '../interfaces';
-import { Typography } from '@mui/material';
+import BlogPostList from '../../components/BlogPostList'
+import styles from '../../styles/Home.module.css'
+import { BlogPostListProps, BlogPost } from '../../interfaces';
 
 
 
 
-export default function Home({posts}: BlogPostListProps) {
+export default function Blog({posts}: BlogPostListProps) {
   return (
     <div className={styles.container}>
       <Head>
@@ -17,7 +15,7 @@ export default function Home({posts}: BlogPostListProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-    <Typography>HOMEPAGE</Typography>
+    <BlogPostList posts={posts} />
       
       
     </div>
