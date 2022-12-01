@@ -1,3 +1,3 @@
 interface Attributes {
-    key?: Key | null | undefined | Number,  
+    key?: Key | null | undefined | Number;
 }

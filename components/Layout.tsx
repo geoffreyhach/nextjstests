@@ -1,18 +1,16 @@
-import React from 'react';
-import NavBar from './NavBar';
+import React from "react";
+import NavBar from "./NavBar";
 
 interface LayoutProps {
-    children: JSX.Element
+    children: JSX.Element;
 }
 
-function Layout({children}:LayoutProps) {
+function Layout({ children }: LayoutProps) {
     return (
-        <>        
+        <>
             <NavBar />
             {children}
         </>
-
-       
     );
 }
 
