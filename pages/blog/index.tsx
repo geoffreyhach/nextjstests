@@ -1,12 +1,15 @@
 import Head from 'next/head'
 import BlogPostList from '../../components/BlogPostList'
 import styles from '../../styles/Home.module.css'
-import { BlogPostListProps, BlogPost } from '../../interfaces';
+import { BlogPost, User } from '../../interfaces';
 
 
+interface BlogPostListProps {
+  posts : BlogPost[],
+  users: User[]
+}
 
-
-export default function Blog({posts}: BlogPostListProps) {
+export default function Blog({posts, users}:BlogPostListProps) {
   return (
     <div className={styles.container}>
       <Head>
@@ -15,8 +18,7 @@ export default function Blog({posts}: BlogPostListProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-    <BlogPostList posts={posts} />
-      
+    <BlogPostList posts={posts} users={users} />
       
     </div>
   )
@@ -25,10 +27,13 @@ export default function Blog({posts}: BlogPostListProps) {
 export async function getStaticProps() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const posts = await res.json();
+  const resUsers = await fetch("https://jsonplaceholder.typicode.com/users")
+  const users = await resUsers.json();
 
   return {
       props : {
           posts : posts,
+          users: users
   
       }
   }
